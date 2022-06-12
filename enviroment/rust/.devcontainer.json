@@ -1,5 +1,5 @@
 {
-	"name": "Dev Container python env",
+	"name": "Dev Container rust env",
 	"dockerComposeFile": "../docker-compose.yml",
 	"service": "__project_name___python",
 	"workspaceFolder": "/workspace/python/work",
