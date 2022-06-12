@@ -1,8 +1,8 @@
 {
 	"name": "Dev Container rust env",
 	"dockerComposeFile": "../docker-compose.yml",
-	"service": "__project_name___python",
-	"workspaceFolder": "/workspace/python/work",
+	"service": "__project_name___rust",
+	"workspaceFolder": "/workspace/rust/work",
 	"shutdownAction": "stopCompose",
 	
 	"settings": { 
