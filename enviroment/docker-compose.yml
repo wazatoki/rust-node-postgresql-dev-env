@@ -1,0 +1,41 @@
+version: '3'
+
+services: 
+  __project_name___builder:
+    container_name: "__project_name___builder"
+    build: 
+      dockerfile: "Dockerfile"
+      context: "builder"
+    volumes: 
+      - ".:/workspace:cached"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    tty: true
+  __project_name___rust:
+    build:
+      dockerfile: "Dockerfile"
+      context: "rust"
+    container_name: __project_name___rust
+    volumes:
+      - ".:/workspace:cached"
+    tty: true
+    ports: 
+      - "8080:8080"
+    depends_on: 
+      - __project_name___db
+  __project_name___node:
+    build:
+      dockerfile: "Dockerfile"
+      context: "node"
+    container_name: __project_name___node
+    volumes:
+      - ".:/workspace:cached"
+    tty: true
+    ports: 
+      - "4200:4200"
+  __project_name___db:
+    image: postgres:14.3
+    container_name: __project_name___db
+    environment: 
+      POSTGRES_USER: "__project_name__"
+      POSTGRES_PASSWORD: "__project_name__"
+      POSTGRES_DB: "__project_name__db"
